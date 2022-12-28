@@ -1,76 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge One</title>
-       <link rel="stylesheet" href="Style.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Challenge One</title>
+        <link rel="stylesheet" href="Style.css">
 
 </head>
+
 <body>
 
         <main>
-                <input class="input" id="input" type="text" placeholder="Digite seu texto"/> 
+                <input class="input" id="input" type="text" placeholder="Digite seu texto" />
 
                 <div class="output">
 
-                        <div >
+                        <div>
 
-                                <p id="resultado"></p>
-
-                        </div>
-                                
-                         <div class="output1">
-                                     <img class= "output2"src="./assets/High quality products 1 1.jpg">
-                                     <p>Nenhuma mensagem encontrada</p>
-
-                                     <label class="output2">Digite um texto que você deseja criptografar ou descriptografar. </label>
-                        </div>
-
-                        <div > 
-                                
-                                <button type="button"
-                                style="visibility:hidden" class= "container-button-copiar">Copiar </button>
+                                <p  id="resultado"></p>
 
                         </div>
-                
-                 </div>
 
+                        <div class="output1">
+                                <img class="output2" src="./assets/High quality products 1 1.jpg">
+                                <p>Nenhuma mensagem encontrada</p>
 
-                 <div class="container-exclamation">
-                            
-                                <div class="exclamation">
-                                    
-                                    <img src="assets/Vector.png" > 
-
-                                     <label>Apenas letras minúsculas e sem acento. </label>
-                               
-
-                                 </div>
-
-                    </div>
-
-                    <div class="cointainer-button">
-
-                           <div class="container-content1">
-                    <button type="button" class="criptografar" onclick="criptografar()" >Criptografar</button>
-                        
+                                <label class="output2">Digite um texto que você deseja criptografar ou descriptografar.
+                                </label>
                         </div>
 
                         <div>
-                           
-                            <button type="button" class="descriptografar">Descriptografar</button>    
- 
 
-                            </div>
-                  </div>
+                                <button type="button" style="visibility:hidden" class="container-button-copiar" onclick="copy()">Copiar
+                                </button>
+
+                        </div>
+
+                </div>
 
 
-        
-                </main>
+                <div class="container-exclamation">
 
-                <script src="script.js"></script>
+                        <div class="exclamation">
+
+                                <img src="assets/Vector.png">
+
+                                <label>Apenas letras minúsculas e sem acento. </label>
+
+
+                        </div>
+
+                </div>
+
+                <div class="cointainer-button">
+
+                        <div class="container-content1">
+                                <button type="button" class="criptografar"
+                                        onclick="criptografar()">Criptografar</button>
+
+                        </div>
+
+                        <div>
+
+                                <button type="button" class="descriptografar" onclick="descriptografar()">Descriptografar</button>
+
+
+                        </div>
+                </div>
+
+
+
+        </main>
+
+        <script src="script.js"></script>
 
 </body>
+
+<footer> Author <br><a href="https://github.com/rc-ventura/Text-encryption-project" target="_blank"><img src="./assets/dev-ventura-edit.png" width="200px "></a></footer>
+
 </html>
