@@ -1,7 +1,7 @@
 body {
 
-    width: 1440px;
-    height: 1024px;
+    width: 1366px;
+    height: 768px;
     background: #F3F5FC;
 }
 
@@ -40,7 +40,7 @@ body {
 
 .output1 {
 
-width: 336px;
+width: 400px;
 height: 58px;
 
 font-family: 'Inter';
@@ -85,6 +85,7 @@ font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
+margin-top: 200px;
 line-height: 150%;
 /* or 24px */
 
@@ -106,7 +107,7 @@ flex-grow: 0
 
 .newOutput {
 
-width: 336px;
+width: 310px;
 height: 781px;
 left: 1032px;
 top: 72px;
@@ -115,6 +116,9 @@ font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
 font-size: 24px;
+text-align: justify;
+margin-left: 25px;
+padding: 20px;
 line-height: 150%;
 /* or 36px */
 
@@ -132,6 +136,7 @@ box-sizing: border-box;
 /* Auto layout */
 
 display: inline;
+position: relative;
 flex-direction: row;
 align-items: flex-start;
 padding: 24px;
@@ -139,8 +144,8 @@ gap: 8px;
 
 width: 336px;
 height: 67px;
-left: 1032px;
-top: 885px;
+left: 2px;
+top: -30px;
 margin-left: 32px;
 margin-top: -100px;
 
@@ -285,7 +290,6 @@ flex-grow: 1;
 
 /* Auto layout */
 
-display: flex;
 flex-direction: row;
 align-items: flex-start;
 padding: 24px;
@@ -357,7 +361,6 @@ box-sizing: border-box;
 
 /* Auto layout */
 
-display: flex;
 flex-direction: row;
 align-items: flex-start;
 padding: 24px;
