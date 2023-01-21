@@ -5,86 +5,72 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <!-- Configuração de media query-->
-        
-       <title>Challenge One</title>
+        <!-- Configuração de media query-->
+
+        <title>Challenge One</title>
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/Style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+        <header>
+                <img class="foto-profile" src="./assets/logo_ven.png"  alt="foto-profile">
+                <h5 id="profile"> Profile</h5>
+
+        </header>
 
         <main>
-                <textarea class="input" id="input" type="text" placeholder="Digite seu texto" minlength="1"
-                        maxlength="3000"> </textarea>
 
-                <div class="output">
+                <section>
 
-                        <div>
+                        <textarea class="input" id="input" cols="41" rows="4" 
+                        placeholder="Digite seu texto..."> </textarea>
 
-                                <p id="resultado"></p>
+                        <div class="container-exclamation">
 
-                        </div>
 
-                        <div class="output1">
-                                <img class="output2" src="./assets/High quality products 1 1.jpg">
-                                <p>Nenhuma mensagem encontrada</p>
+                                <img class="img-exclamacao"
+                src="assets/Vector.png">
 
-                                <label class="output2">Digite um texto que você deseja criptografar ou descriptografar.
-                                </label>
-                        </div>
-
-                        <div>
-
-                                <button type="button" style="visibility:hidden" class="container-button-copiar"
-                                        onclick="copy()">Copiar
-                                </button>
+                                <h6 class="texto-alerta">Apenas letras minúsculas e sem acento. </h6>
 
                         </div>
 
-                </div>
 
+                        <div class="cointainer-button">
 
-                <div class="container-exclamation">
-
-                        <div class="exclamation">
-
-                                <img src="assets/Vector.png">
-
-                                <label>Apenas letras minúsculas e sem acento. </label>
-
-
-                        </div>
-
-                </div>
-
-                <div class="cointainer-button">
-
-                        <div class="container-content1">
                                 <button type="button" class="criptografar"
-                                        onclick="criptografar()">Criptografar</button>
-
-                        </div>
-
-                        <div>
-
+                                        onclick="chamaCriptografia()">Criptografar</button>
                                 <button type="button" class="descriptografar"
-                                        onclick="descriptografar()">Descriptografar</button>
-
+                                        onclick="chamaDescriptografia()">Descriptografar</button>
 
                         </div>
-                </div>
+
+                </section>
 
 
+                <section>
+
+                        <textarea class="output" cols="20" rows="10"> </textarea>
+                        <h4 id="mensagem">Nenhuma mensagem encontrada </h4>
+                        <h6 id="informacao">Digite um texto que você deseja criptografar ou descriptografar</h6>
+                        <button type="button" style="visibility:hidden" class="container-button-copiar"
+                                onclick="copy()">Copiar</button>
+
+
+                </section>
 
         </main>
 
         <script src="./scripts/script.js"></script>
 
 </body>
-
-<footer> Author <br><a href="https://github.com/rc-ventura/Text-encryption-project" target="_blank"><img
+<!---->
+<footer> Autor <br><a href="https://github.com/rc-ventura/Text-encryption-project" target="_blank"><img
                         src="./assets/dev-ventura-edit.png" width="200px "></a></footer>
 
 </html>

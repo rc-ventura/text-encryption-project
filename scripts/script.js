@@ -1,166 +1,167 @@
+//guardando o input 
+const textAreaDoInput = document.querySelector(".input");
+//console.log(input)
+
+//guardando o output
+const textAreaDoOutput= document.querySelector(".output");
+//console.log(output)
+
+//guardando as mensagens do output
+const mensagem = document.querySelector("#mensagem");
+
+const informacao = document.querySelector("#informacao");
 
 //Adicionando um listener nos buttons com event  click
- const btn = document.querySelector(".container-button-copiar");
- btn.addEventListener("click", copy)
- btn.addEventListener("click", parar)
+ const btnDeCopiar = document.querySelector(".container-button-copiar");
+ const btnDeCriptografar = document.querySelector(".criptografar");
 
- //funcao copiar resultado do text area
+ btnDeCopiar.addEventListener("click", copy);
+ btnDeCopiar.addEventListener("click", parar);
+ btnDeCriptografar.addEventListener("click", display);
+
+ //funcao copia o output do text area
  function copy() {
-         let copyText = document.querySelector("#resultado");
          //let input = document.querySelector("#input")
-
-        navigator.clipboard.writeText(copyText.textContent)     //funcao que copia conteudo
-        btn.innerText = "Copiado"                       // adicionando um novo estado para o button
-        btn.classList.add("ativo")                      //adicionando uma classe (ativo)
-
-        //input.focus();
-        
+         //console.log (copyText);
+        textAreaDoInput.focus();
+        navigator.clipboard.writeText(textAreaDoOutput.value) ;        
+        //funcao que copia conteudo
+        btnDeCopiar.innerText = "Copiado"                       // adicionando um novo estado para o button
+        btnDeCopiar.classList.add("ativo")                      //adicionando uma classe (ativo)
        }
        //funcao que aciona a funcao removeClassList por tempo
        function parar(){
 
-        setTimeout(removeClassList,5000)     //timeout de 5000mls
+        setTimeout(mudaEstado,6000)     //timeout de 5000mls
        }
-       //funcao que remove o estado do button ativo
-       function removeClassList(){
+       //funcao que muda  o estado dos elementos html
+       function mudaEstado(){
 
-        btn.classList.remove("ativo")  
-        btn.innerText = "Copiar"
-
-       }
-       
+        //remove a classe ativo do button copiar
+        btnDeCopiar.classList.remove("ativo");  
+        
+        //adiciona um label para o button
+        btnDeCopiar.innerText = "Copiar";
+        
+        //remove a classe background do textArea output
+        textAreaDoOutput.classList.remove("background");
 
       
+
+        //muda o display da mensagem do ouput para visivel
+        mensagem.style.display="block";
+        
+        //muda o display da informacao do output para visivel
+        informacao.style.display="block";
        
+        //muda a visiiblidade do button para hidden
+        btnDeCopiar.style.visibility="hidden";
 
-    
+          //limpa o output
+          textAreaDoOutput.value = "";
+        
+       }
 
-    
- 
+       function display(){
+        
+        //adicionando uma classe para o output
 
-//funcao que gerencia a  criptografia
-function criptografar() {
+        textAreaDoOutput.classList.add("background");
+        
+        //apagando o display do output
+        mensagem.style.display="none";
+        informacao.style.display="none";
 
-    let resultado = document.getElementById("resultado");       // guarda em uma variavel o local de inserção do input
-    let collection = document.getElementsByClassName("output1");  // guarda em uma variavel o loca da interação 
-    collection[0].style.visibility = "hidden";  //esconde os elementos de HTML
+        //Mudando o style do button copiar
+        btnDeCopiar.style.visibility="visible";
+        
+        
+       }
 
-    const novoInputC = conversaoDeString();   //pegando o retorno da funcao e guardando
-    
-    if (novoInputC === undefined) {
 
-        collection[0].style.visibility = "visible";
+    //funcao que chama a funcao conversap
+
+    function chamaCriptografia(){
+
+        
+
+        //guardamos o retorno da funcao criptografar em uma variavel
+        //a funcao recebe o parametro do textArea e captura seu valor
+        const stringCriptografada = criptografia(textAreaDoInput.value);
+        
+        //no output declaramos o seu valor com o conteudo da variavel string criptografada
+        textAreaDoOutput.value = stringCriptografada ;       
+        
+        //limpamos o output
+        textAreaDoInput.value = "";
     }
 
-     else { 
 
-        // cria um text area para o input do cliente com CSS
-         resultado.innerHTML = `<textarea  name= 'newOutput' class= 'newOutput' >${novoInputC}</textarea>`  
 
-        let button = document.getElementsByClassName("container-button-copiar"); //variavel HTML
-        button[0].style.visibility = "visible"; //altera o estado visivel para o button
-    
-    }
 
+
+    // funcao que manipula e converte as strings
+     function criptografia(stringDoInput){
+
+        let = matrizDaCriptografia = [["e", "enter"], ["i", "imes"],["a","ai"],["o","ober"], ["u", "ufat"]];
+
+        console.log(matrizDaCriptografia)
+        stringDoInput = stringDoInput.toLowerCase();
+
+        //buscar na minha matriz
+        for (i=0;i < matrizDaCriptografia.length; i++) {
+            if(stringDoInput.includes(matrizDaCriptografia[i][0])){
+                stringDoInput = stringDoInput.replaceAll(matrizDaCriptografia[i][0], matrizDaCriptografia[i][1])
+     
+    } 
+        }
+    console.log(stringDoInput);
+
+     return stringDoInput;
 
 }
 
 
-//criando a logica da criptografia e validacoes
-function conversaoDeString() {
+    //funcao que chama a funcao desconversao
 
-     //pega o valor do input
-    let inputConversao = document.getElementById("input").value; 
-    console.log(inputConversao)           
+    function chamaDescriptografia(){
 
-    //itera no arrays de strings do input
-    for (let pos = 0; pos < inputConversao.length; pos++) {
-
-        //validacoes para permitir apenas minúsculas 
-        //** ESTUDAR REGEX **// -> Para validar melhor sem erros
-
-        if (inputConversao[pos] === "E" || inputConversao[pos] === 'A' || inputConversao[pos] === "I" || inputConversao[pos] === "O" || inputConversao[pos] === "U") {
-
-                return alert("Use apenas letras minúsculas")
-
-          //validacoes para  não permitir caracteres especiais
-        } else if (inputConversao[pos] === "<" || inputConversao[pos] === '>' || inputConversao[pos] === "&" || inputConversao[pos] === "&reg" || inputConversao[pos] === "&copy" || inputConversao[pos] === "&trade" || inputConversao[pos] === "&copy") {
-
-                    return alert("Use apenas caracteres normais")
-
-         //validacoes para  não permitir acento
-
-        } else if  (inputConversao[pos] === "é" || inputConversao[pos] === 'á' || inputConversao[pos] === "í" || inputConversao[pos] === "ó" || inputConversao[pos] === "ú") {
-
-                return alert ("Use apenas letras sem acento.")
-
-         //Conversao da String -> criptografia
-
-         } else if (inputConversao[pos] === "e" || inputConversao[pos] === 'a' || inputConversao[pos] === "i" || inputConversao[pos] === "o" || inputConversao[pos] === "u") {
-
-            const criptografia = inputConversao.replace(/e/g, "enter").replace(/i/g, "imes").replace(/a/g, "ai").replace(/o/g, "ober").replace(/u/g, "ufat");
-
-            console.log (criptografia);
-            return criptografia.toLowerCase()   // passa tudo para minúscula
-
-     
-            
-        }
-        }
-
-        }
-        //funcao que gerencia a descriptografia
-        function descriptografar() {
-
-            let resultado = document.getElementById("resultado");       // guarda em uma variavel o local de inserção do input
         
-            let collection = document.getElementsByClassName("output1");  // guarda em uma variavel o loca da interação 
-            collection[0].style.visibility = "hidden";  //esconde os elementos de HTML
+        //guardamos o retorno da funcao descriptografar em uma variavel
+        //a funcao recebe o parametro do textArea e captura seu valor
+        const stringDescriptografada = descriptografia(textAreaDoOutput.value);
         
-            const novoInputD = desconversaoDeString();   //pegando o retorno da funcao e guardando
-            console.log(novoInputD)
-
-            if (novoInputD === undefined) {
+        //no output declaramos o seu valor com o conteudo da variavel string criptografada
+        textAreaDoOutput.value = stringDescriptografada ;       
         
-                collection[0].style.visibility = "visible";
-            }
-        
-             else { 
-        
-                // cria um text area para o input do cliente com CSS
-                 resultado.innerHTML = `<textarea  name= 'newOutput' class= 'newOutput' >${novoInputD}</textarea>`  
-        
-                let button = document.getElementsByClassName("container-button-copiar"); //variavel HTML
-                button[0].style.visibility = "visible"; //altera o estado visivel para o button
-            
-            }
-        
-        
-        }
-        
-        
-        //funcao que implementa a logica de descriptografia
-        function desconversaoDeString() {
-
-            let inputDesconversao = document.getElementById("input").value;  
-            
-            console.log(inputDesconversao)
-
-            for (let pos = 0; pos < inputDesconversao.length; pos++) {
-
-                if (inputDesconversao[pos] === "e" || inputDesconversao[pos] === 'a' || inputDesconversao[pos] === "i" || inputDesconversao[pos] === "o" || inputDesconversao[pos] === "u") {
-
-                 const descriptografia = inputDesconversao.replace(/enter/g, "e").replace(/imes/g, "i").replace(/ai/g, "a").replace(/ober/g, "o").replace(/ufat/g, "u");
-        
-                    console.log (descriptografia);
-                    return descriptografia.toLowerCase() 
-
-
-                }
-
-        }
+        //limpamos o output
+        textAreaDoInput.value = "";
     }
-    
-   
-      
-      
+
+
+
+
+
+// funcao que manipula e converte as strings
+function descriptografia(stringDoOutput){
+
+    let = matrizDaCriptografia = [["e", "enter"], ["i", "imes"],["a","ai"],["o","ober"], ["u", "ufat"]];
+
+    //console.log(matrizDaCriptografia)
+  //  stringDoInput = stringDoInput.toLoWerCase();
+
+    //buscar na minha matriz
+    for (i=0;i < matrizDaCriptografia.length; i++) {
+        if(stringDoOutput.includes(matrizDaCriptografia[i][1])){
+            stringDoOutput = stringDoOutput.replaceAll(matrizDaCriptografia[i][1], matrizDaCriptografia[i][0])
+ 
+} 
+    }
+//console.log(stringDoOutput);
+
+ return stringDoOutput;
+
+}
+
+
+
