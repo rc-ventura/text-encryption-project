@@ -32,7 +32,7 @@ const informacao = document.querySelector("#informacao");
        //funcao que aciona a funcao removeClassList por tempo
        function parar(){
 
-        setTimeout(mudaEstado,6000)     //timeout de 5000mls
+        setTimeout(mudaEstado,10000)     //timeout de 5000mls
        }
        //funcao que muda  o estado dos elementos html
        function mudaEstado(){
