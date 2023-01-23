@@ -10,7 +10,7 @@
  body {
     /* background: #F3F5FC ;*/
     
-    background-image: url(./assets/6144249.jpg);
+    background-image: url(../assets/6144249.jpg);
     background-repeat: round;
  }
  .foto-profile{
@@ -54,7 +54,7 @@ main {
 .output {
 
     background: #FFFFFF;
-    background-image: url(./assets/High\ quality\ products\ 1\ 1.jpg);  /* Utilizamos uma imagem como background */
+    background-image: url(../assets/High\ quality\ products\ 1\ 1.jpg);  /* Utilizamos uma imagem como background */
     background-repeat: no-repeat;                                      /* Não repita várias imagens */
     border: none;
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
